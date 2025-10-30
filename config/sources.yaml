@@ -1,0 +1,13 @@
+# Ops LLM — Ingestion config
+
+sources:
+  - id: local_docs
+    type: filesystem
+    paths: ["./data"]
+    include: ["**/*.docx", "**/*.pdf", "**/*.txt"]
+chunking:
+  target_tokens: 600
+  overlap_tokens: 80
+store:
+  kind: sqlite
+  path: ./.ops_llm.sqlite
